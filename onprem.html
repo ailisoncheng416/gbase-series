@@ -139,14 +139,7 @@ a{text-decoration:none;color:inherit}
 .footer-legal a{font-size:.76rem;color:rgba(255,255,255,.5)}
 .footer-legal a:hover{color:#fff}
 @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:1.75rem}.footer-bottom{flex-direction:column;align-items:flex-start}}
-/* ===== 全ページ統一：ヘッダー＆フッターをダーク navy に ===== */
-/* 第2層メインヘッダーもダークに（第1層 utilbar は既にダーク） */
-.mainhdr{background:var(--gb-navy);border-bottom:1px solid rgba(255,255,255,.1);border-top:1px solid rgba(255,255,255,.07);backdrop-filter:none}
-.logo img{height:24px}
-.logo-txt{color:#fff;font-weight:800;font-size:1.15rem;letter-spacing:-.01em;margin-left:.15rem}
-.prodnav a{color:rgba(255,255,255,.72)}
-.prodnav a:hover,.prodnav a.active{color:#fff}
-/* フッター：ダーク navy */
+/* ===== フッターをダーク navy に（第1層 utilbar も既にダーク＝ダークの書挡・第2層は白のまま） ===== */
 .footer{background:#0b1120;color:rgba(255,255,255,.72);line-height:1.5}
 .footer li{padding:.2rem 0}
 .footer h4{color:#fff}
@@ -233,7 +226,7 @@ a{text-decoration:none;color:inherit}
   <div class="main-c">
     <!-- メインのロゴ = On-Prem（緑）。これが主役の1ロゴ -->
     <a href="https://ailisoncheng416.github.io/gbase-series/onprem.html" class="logo">
-      <img src="assets/gbase-mark-white.png" alt=""><span class="logo-txt">GBase <b>On-Prem</b></span>
+      <img src="assets/gbase-onprem-logo.png" alt="GBase On-Prem">
     </a>
     <ul class="prodnav">
       <li><a href="#" class="active">特長</a></li>
