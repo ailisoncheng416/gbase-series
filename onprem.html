@@ -139,24 +139,29 @@ a{text-decoration:none;color:inherit}
 .footer-legal a{font-size:.76rem;color:rgba(255,255,255,.5)}
 .footer-legal a:hover{color:#fff}
 @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:1.75rem}.footer-bottom{flex-direction:column;align-items:flex-start}}
-/* footer を首页と統一（浅ブルー） */
-.footer{background:#eaf1fc;color:var(--gb-ink);line-height:1.5}
-.footer-mid{border-top:1px solid #d7e2f4}
-.footer-bottom{border-top:1px solid #d7e2f4}
-.footer h4{color:var(--gb-navy)}
+/* ===== 全ページ統一：ヘッダー＆フッターをダーク navy に ===== */
+/* 第2層メインヘッダーもダークに（第1層 utilbar は既にダーク） */
+.mainhdr{background:var(--gb-navy);border-bottom:1px solid rgba(255,255,255,.1);border-top:1px solid rgba(255,255,255,.07);backdrop-filter:none}
+.logo img{height:24px}
+.logo-txt{color:#fff;font-weight:800;font-size:1.15rem;letter-spacing:-.01em;margin-left:.15rem}
+.prodnav a{color:rgba(255,255,255,.72)}
+.prodnav a:hover,.prodnav a.active{color:#fff}
+/* フッター：ダーク navy */
+.footer{background:#0b1120;color:rgba(255,255,255,.72);line-height:1.5}
 .footer li{padding:.2rem 0}
-.footer-col a{color:var(--gb-gray)}
-.footer-col a:hover{color:var(--gb-sys)}
-.footer-sub{color:#94a3b8}
-.flogo{display:inline-flex;align-items:center;gap:.45rem;font-weight:800;font-size:1rem;color:var(--gb-navy)}
+.footer h4{color:#fff}
+.footer-col a{color:rgba(255,255,255,.6)}
+.footer-col a:hover{color:#fff}
+.flogo{font-size:1rem;gap:.45rem;color:#fff}
 .flogo img{height:18px;width:auto}
-.footer-social a{background:#fff;border:1px solid #d7e2f4;color:var(--gb-gray)}
-.footer-social a:hover{background:var(--gb-sys);color:#fff;border-color:var(--gb-sys)}
+.footer-mid,.footer-bottom{border-top:1px solid rgba(255,255,255,.1)}
+.footer-social a{background:rgba(255,255,255,.08);border:none;color:rgba(255,255,255,.85)}
+.footer-social a:hover{background:var(--gb-sys);color:#fff}
 .footer-social .pr-p{color:var(--gb-sys)}
 .footer-social a:hover .pr-p{color:#fff}
-.footer-copy{color:#94a3b8}
-.footer-legal a{color:var(--gb-gray)}
-.footer-legal a:hover{color:var(--gb-sys)}
+.footer-copy{color:rgba(255,255,255,.4)}
+.footer-legal a{color:rgba(255,255,255,.5)}
+.footer-legal a:hover{color:#fff}
 </style>
 </head>
 <body data-brand="onprem">
@@ -227,8 +232,8 @@ a{text-decoration:none;color:inherit}
 <nav class="mainhdr">
   <div class="main-c">
     <!-- メインのロゴ = On-Prem（緑）。これが主役の1ロゴ -->
-    <a href="https://gbase.ai/onprem/" class="logo">
-      <img src="assets/gbase-onprem-logo.png" alt="GBase On-Prem">
+    <a href="https://ailisoncheng416.github.io/gbase-series/onprem.html" class="logo">
+      <img src="assets/gbase-mark-white.png" alt=""><span class="logo-txt">GBase <b>On-Prem</b></span>
     </a>
     <ul class="prodnav">
       <li><a href="#" class="active">特長</a></li>
@@ -317,7 +322,7 @@ a{text-decoration:none;color:inherit}
     </div>
 
     <div class="footer-mid">
-      <a href="https://gbase.ai/" class="flogo"><img src="assets/gbase-mark-navy.png" alt="GBase">GBase シリーズ</a>
+      <a href="https://gbase.ai/" class="flogo"><img src="assets/gbase-mark-white.png" alt="GBase">GBase シリーズ</a>
       <div class="footer-social">
         <a href="https://prtimes.jp/main/html/searchrlp/company_id/87269" target="_blank" rel="noopener" aria-label="PR TIMES" class="prtimes-text"><span class="pr-p">PR</span></a>
         <a href="https://x.com/GBaseHub" target="_blank" rel="noopener" aria-label="X" title="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
