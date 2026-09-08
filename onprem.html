@@ -139,6 +139,24 @@ a{text-decoration:none;color:inherit}
 .footer-legal a{font-size:.76rem;color:rgba(255,255,255,.5)}
 .footer-legal a:hover{color:#fff}
 @media(max-width:900px){.footer-top{grid-template-columns:1fr 1fr;gap:1.75rem}.footer-bottom{flex-direction:column;align-items:flex-start}}
+/* footer を首页と統一（浅ブルー） */
+.footer{background:#eaf1fc;color:var(--gb-ink);line-height:1.5}
+.footer-mid{border-top:1px solid #d7e2f4}
+.footer-bottom{border-top:1px solid #d7e2f4}
+.footer h4{color:var(--gb-navy)}
+.footer li{padding:.2rem 0}
+.footer-col a{color:var(--gb-gray)}
+.footer-col a:hover{color:var(--gb-sys)}
+.footer-sub{color:#94a3b8}
+.flogo{display:inline-flex;align-items:center;gap:.45rem;font-weight:800;font-size:1rem;color:var(--gb-navy)}
+.flogo img{height:18px;width:auto}
+.footer-social a{background:#fff;border:1px solid #d7e2f4;color:var(--gb-gray)}
+.footer-social a:hover{background:var(--gb-sys);color:#fff;border-color:var(--gb-sys)}
+.footer-social .pr-p{color:var(--gb-sys)}
+.footer-social a:hover .pr-p{color:#fff}
+.footer-copy{color:#94a3b8}
+.footer-legal a{color:var(--gb-gray)}
+.footer-legal a:hover{color:var(--gb-sys)}
 </style>
 </head>
 <body data-brand="onprem">
@@ -253,14 +271,13 @@ a{text-decoration:none;color:inherit}
 <!-- ============ FOOTER（GBaseシリーズ・全ページ共通・header1の鏡像） ============ -->
 <footer class="footer">
   <div class="footer-inner">
-    <!-- 上段：ナビ列（全幅・auto-fit・NTT型。列/リンクを足しても自動折返し） -->
     <div class="footer-top">
         <div class="footer-col">
           <h4>製品</h4>
           <ul>
-            <li><a href="https://gbase.ai/"><img class="fmark" src="assets/gbase-mark-cyan.png" alt="">GBase Knowledge</a></li>
-            <li><a href="https://gbase.ai/support/"><img class="fmark" src="assets/gbase-mark-purple.png" alt="">GBase Support</a></li>
-            <li><a href="https://gbase.ai/onprem/"><img class="fmark" src="assets/gbase-mark-green.png" alt="">GBase On-Prem</a></li>
+            <li><a href="https://gbase.ai/">GBase Knowledge</a></li>
+            <li><a href="https://gbase.ai/support/">GBase Support</a></li>
+            <li><a href="https://ailisoncheng416.github.io/gbase-series/onprem.html">GBase OnPrem</a></li>
           </ul>
         </div>
 
@@ -273,45 +290,36 @@ a{text-decoration:none;color:inherit}
             <li><a href="https://gbase.ai/support/ai-phone/">AI電話受付・取次</a></li>
             <li><a href="https://gbase.ai/support/concierge/">AI受付コンシェルジュ</a></li>
           </ul>
-          <!-- 機能が8超になったら有効化：<p class="footer-more"><a href="/features">すべての機能を見る →</a></p> -->
         </div>
 
         <div class="footer-col">
           <h4>ソリューション</h4>
-          <!-- 軸(業種/部門)をサブ見出しで固定。将来の業種はこの下に足すだけ -->
-          <div class="footer-sub">業種別</div>
           <ul>
             <li><a href="https://gbase.ai/onprem/solutions/manufacturing/">製造業</a></li>
-            <li><a href="https://gbase.ai/onprem/solutions/government/">自治体・官公庁</a></li>
+            <li><a href="https://ailisonc147.github.io/onprem/government-solution.html">自治体・官公庁</a></li>
             <li><a href="https://gbase.ai/solution-advertising">広告代理店</a></li>
             <li><a href="https://gbase.ai/solution/">コンサルティング業界</a></li>
-          </ul>
-          <div class="footer-sub">部門・用途別</div>
-          <ul>
             <li><a href="https://gbase.ai/solution-sales">営業部門</a></li>
             <li><a href="https://gbase.ai/support/solution/">カスタマーサポート</a></li>
           </ul>
-          <!-- ハブ作成後に有効化：<p class="footer-more"><a href="/solutions">すべてのソリューション →</a></p> -->
         </div>
 
         <div class="footer-col">
           <h4>会社・リソース</h4>
           <ul>
-            <li><a href="https://gbase.ai/support/showcase/">導入事例</a></li>
+            <li><a href="https://ailisoncheng416.github.io/gbase-series/case-studies.html">導入事例</a></li>
             <li><a href="https://gbase.ai/blog/">ブログ</a></li>
             <li><a href="https://www.sparticle.com/" target="_blank" rel="noopener">会社情報</a></li>
-            <li><a href="https://www.sparticle.com/careers" target="_blank" rel="noopener">採用情報</a></li>
-            <li><a href="https://gbase.ai/contact">お問い合わせ</a></li>
+            <li><a href="https://www.sparticle.com/ja/company#career-target" target="_blank" rel="noopener">採用情報</a></li>
+            <li><a href="https://ailisoncheng416.github.io/gbase-series/contact.html">お問い合わせ</a></li>
           </ul>
         </div>
     </div>
 
-    <!-- 中段：ロゴ ＋ SNS（NTT型：ロゴは下段に） -->
     <div class="footer-mid">
-      <a href="https://gbase.ai/" class="flogo"><img src="assets/gbase-mark-white.png" alt="GBase">GBase</a>
-      <!-- SNS：本家 ai-meeting.html と同一（PR TIMES → X → LinkedIn → note → YouTube・全5個） -->
+      <a href="https://gbase.ai/" class="flogo"><img src="assets/gbase-mark-navy.png" alt="GBase">GBase シリーズ</a>
       <div class="footer-social">
-        <a href="https://prtimes.jp/main/html/searchrlp/company_id/87269" target="_blank" rel="noopener" aria-label="PR TIMES" title="PR TIMES" class="prtimes-text"><span class="pr-p">P</span><span class="pr-r">R</span></a>
+        <a href="https://prtimes.jp/main/html/searchrlp/company_id/87269" target="_blank" rel="noopener" aria-label="PR TIMES" class="prtimes-text"><span class="pr-p">PR</span></a>
         <a href="https://x.com/GBaseHub" target="_blank" rel="noopener" aria-label="X" title="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
         <a href="https://www.linkedin.com/company/sparticle-inc/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
         <a href="https://note.com/sparticle_gbase" target="_blank" rel="noopener" aria-label="note"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg></a>
