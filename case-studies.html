@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>導入事例 | GBase — 製品・業種・シーンで探す</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<meta name="description" content="GBase シリーズ（Knowledge / Support / On-Prem）の導入事例。製品・業種・シーンで絞り込み。製造業のナレッジ活用、通信の問い合わせ対応、商業施設のAI受付など。">
+<style>
+:root{
+  --gb-navy:#0F172A;--gb-ink:#1e293b;--gb-gray:#64748b;--gb-line:#e2e8f0;
+  --gb-surface:#f8fafc;--shadow-md:0 6px 24px rgba(15,23,42,.05);
+  --gb-accent:#00ccff;--gb-accent-ink:#0099cc;--gb-accent-soft:#e6faff;
+  --gb-sys:#0553DD;--gb-sys-ink:#0553DD;--gb-sys-soft:#e9f0fd;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Noto Sans JP',"Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,system-ui,sans-serif;color:var(--gb-ink);background:#fff;line-height:1.8;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"palt" 1;line-break:strict;word-break:auto-phrase}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:.55rem 1.2rem;border-radius:999px;font-weight:700;font-size:.88rem;transition:.2s;white-space:nowrap;border:1.5px solid transparent}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45);padding:.4rem 1rem;font-size:.8rem}
+.btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.btn-sys{background:var(--gb-sys);color:#fff}
+.btn-sys:hover{filter:brightness(1.05);box-shadow:0 6px 18px rgba(5,83,221,.25)}
+
+/* ===== 細い utility 帯（GBase シリーズ・会社/採用/問合せ） ===== */
+.util{background:var(--gb-navy);font-size:.78rem}
+.util-c{max-width:1140px;margin:0 auto;padding:.4rem 2rem;display:flex;justify-content:space-between;align-items:center}
+.util .series{display:inline-flex;align-items:center;gap:.45rem;color:#fff;font-weight:800;font-size:.8rem}
+.util .series img{height:16px;width:auto}
+.util .series:hover{opacity:.85}
+.util-links{display:flex;gap:1.25rem}
+.util-links a{color:rgba(255,255,255,.72);font-weight:600}
+.util-links a:hover{color:#fff}
+/* ===== 白い主ヘッダー（primary・sticky・日系標準。白 header × 白 hero で自然） ===== */
+.mainbar{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--gb-line);z-index:1000}
+.mainbar-c{max-width:1140px;margin:0 auto;padding:.6rem 2rem;display:flex;align-items:center;gap:2rem}
+.mlogo{display:inline-flex;align-items:center;gap:.5rem;font-weight:800;font-size:1.2rem;color:var(--gb-navy)}
+.mlogo img{height:26px;width:auto}
+.mlogo .ser{font-weight:600;font-size:.82em;color:var(--gb-gray);margin-left:.25rem}
+.mnav{display:flex;gap:1.7rem;list-style:none;align-items:center;margin-left:.3rem}
+.mnav>li{position:relative}
+.mnav>li>a,.mnav>li>.sw{color:var(--gb-ink);font-weight:600;font-size:.94rem;cursor:pointer;padding:1.1rem 0;display:inline-block}
+.mnav>li>a:hover,.mnav>li>.sw:hover{color:var(--gb-sys)}
+.mnav .has-mega>.sw::after{content:"▾";font-size:.7em;margin-left:.25rem;opacity:.6}
+.mnav>li>a.active{color:var(--gb-navy);border-bottom:2px solid var(--gb-sys);padding-bottom:calc(1.1rem - 2px)}
+.mbtns{margin-left:auto;display:flex;gap:.6rem}
+.btn-outline{background:transparent;color:var(--gb-navy);border-color:var(--gb-line)}
+.btn-outline:hover{border-color:var(--gb-navy)}
+.pmark{width:22px;height:19px;flex:0 0 auto;-webkit-mask:url(assets/gbase-mark-white.png) center/contain no-repeat;mask:url(assets/gbase-mark-white.png) center/contain no-repeat}
+.mega{position:absolute;top:calc(100% + .3rem);left:0;background:#fff;border:1px solid var(--gb-line);border-radius:16px;box-shadow:var(--shadow-md);padding:1.75rem;opacity:0;visibility:hidden;transform:translateY(-6px);transition:.2s;z-index:1002}
+.mega::before{content:"";position:absolute;top:-.5rem;left:0;right:0;height:.5rem}
+.has-mega:hover .mega,.has-mega:focus-within .mega{opacity:1;visibility:visible;transform:translateY(0)}
+.mega-cols{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.mega-col-label{font-size:.72rem;font-weight:800;letter-spacing:.06em;color:var(--gb-gray);margin:0 0 .9rem .7rem}
+.mega-item{display:flex;gap:.85rem;padding:.6rem .7rem;border-radius:11px;align-items:flex-start;color:var(--gb-ink)}
+.mega-item:hover{background:var(--gb-surface)}
+.mega-item .ic{width:36px;height:36px;border-radius:9px;background:var(--gb-sys-soft);color:var(--gb-sys-ink);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.mega-item .ic svg{width:19px;height:19px}
+.mega-item .pico{width:22px;height:19px;flex:0 0 auto;margin-top:.3rem;object-fit:contain}
+.mega-item .tt{font-weight:700;font-size:.9rem;color:var(--gb-navy);display:flex;align-items:center;white-space:nowrap}
+.mega-item .dd2{font-size:.76rem;color:var(--gb-gray);display:block;margin-top:.1rem;white-space:nowrap}
+.newbadge{font-size:.58rem;font-weight:800;color:#fff;background:#f97316;border-radius:4px;padding:.08rem .32rem;margin-left:.45rem}
+
+/* ===== ページ見出し ===== */
+.page-head{background:var(--gb-surface);padding:4rem 2rem 3rem;border-bottom:1px solid var(--gb-line)}
+.page-head-in{max-width:1140px;margin:0 auto}
+.crumb{font-size:.78rem;color:var(--gb-gray);margin-bottom:2rem}
+.crumb a:hover{color:var(--gb-sys)}
+.crumb span{color:var(--gb-ink)}
+.page-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.12em;color:var(--gb-gray);margin-bottom:1rem;text-transform:uppercase}
+.page-head h1{font-size:2.35rem;color:var(--gb-navy);font-weight:700;margin-bottom:1.1rem;letter-spacing:-.01em;line-height:1.35}
+.page-head p{color:var(--gb-gray);font-size:1rem;max-width:600px;line-height:1.9;line-break:strict;word-break:auto-phrase}
+
+/* ===== フィルタ（製品／業種／シーン・NTT型 多軸） ===== */
+.wrap{max-width:1140px;margin:0 auto;padding:1rem 2rem 6rem}
+.filter{background:#fff;border:1px solid var(--gb-line);border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:2.5rem}
+.filter-row{display:flex;align-items:center;gap:.75rem;padding:.5rem 0;flex-wrap:wrap}
+.filter-row+.filter-row{border-top:1px solid var(--gb-line)}
+.filter-label{width:64px;flex:0 0 auto;font-size:.8rem;font-weight:700;color:var(--gb-navy)}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:.4rem;padding:.35rem .85rem;border-radius:999px;border:1.5px solid var(--gb-line);background:#fff;font-size:.82rem;font-weight:600;color:var(--gb-ink);cursor:pointer;transition:.15s;user-select:none}
+.chip:hover{border-color:var(--gb-sys)}
+.chip.active{background:var(--gb-sys);border-color:var(--gb-sys);color:#fff}
+.chip .cdot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
+.filter-foot{display:flex;justify-content:space-between;align-items:center;margin-top:.75rem;padding-top:.85rem;border-top:1px solid var(--gb-line)}
+.filter-count{font-size:.9rem;color:var(--gb-gray)}
+.filter-count b{color:var(--gb-navy);font-size:1.05rem}
+.clear-btn{font-size:.82rem;font-weight:700;color:var(--gb-sys);cursor:pointer;background:none;border:none}
+.clear-btn:hover{text-decoration:underline}
+
+/* ===== 事例グリッド（Felo型 2列） ===== */
+.case-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.25rem 2rem}
+.case-card{border:1px solid var(--gb-line);border-radius:14px;overflow:hidden;background:#fff;display:flex;flex-direction:column;transition:.25s}
+.case-card:hover{box-shadow:var(--shadow-md);transform:translateY(-2px);border-color:#cdd5e0}
+.case-thumb{aspect-ratio:16/9;position:relative;overflow:hidden;background:var(--gb-surface)}
+.case-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.case-thumb .metric{position:absolute;top:.8rem;right:.8rem;background:rgba(255,255,255,.96);color:var(--gb-navy);font-weight:700;font-size:.8rem;padding:.25rem .6rem;border-radius:7px;z-index:1;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+.case-company{font-size:.82rem;font-weight:700;color:var(--gb-ink);margin-bottom:.4rem}
+.case-body{padding:1.25rem 1.35rem 1.4rem;display:flex;flex-direction:column;flex:1}
+.case-tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:.9rem}
+.tag{font-size:.72rem;font-weight:600;padding:.18rem .55rem;border-radius:6px;background:var(--gb-surface);color:var(--gb-gray)}
+.tag-prod{display:inline-flex;align-items:center;gap:.4rem;background:var(--gb-surface);color:var(--gb-ink);font-weight:700}
+.tag-prod .pd{width:7px;height:7px;border-radius:50%;flex:0 0 auto}
+.case-title{font-weight:700;font-size:1.1rem;color:var(--gb-navy);line-height:1.55;margin-bottom:.55rem;letter-spacing:-.005em}
+.case-excerpt{font-size:.87rem;color:var(--gb-gray);flex:1;margin-bottom:1.1rem;line-height:1.8}
+.case-more{font-size:.85rem;font-weight:700;color:var(--gb-sys);display:inline-flex;align-items:center;gap:.3rem}
+.case-more::after{content:"→";transition:.2s}
+.case-card:hover .case-more::after{transform:translateX(3px)}
+.empty{grid-column:1/-1;text-align:center;padding:3rem;color:var(--gb-gray)}
+
+/* ===== FOOTER（shell と共通・NTT型） ===== */
+.footer{background:var(--gb-navy);color:#fff;padding:3.5rem 2rem 1.75rem;margin-top:2rem}
+.footer-inner{max-width:1240px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:2.5rem 2rem;padding-bottom:2.25rem}
+.footer-mid{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding:1.5rem 0;border-top:1px solid rgba(255,255,255,.1)}
+.flogo{display:inline-flex;align-items:center;gap:.5rem;font-weight:800;font-size:1.15rem;color:#fff}
+.flogo img{height:22px;width:auto}
+.footer h4{font-size:.82rem;font-weight:700;margin-bottom:1rem;letter-spacing:.03em;color:#fff}
+.footer ul{list-style:none}.footer li{padding:.32rem 0}
+.footer-col a{color:rgba(255,255,255,.62);font-size:.84rem;display:inline-flex;align-items:center;white-space:nowrap}
+.footer-col a:hover{color:#fff}
+.footer-col .fmark{width:15px;height:13px;margin-right:.45rem;vertical-align:-2px;object-fit:contain}
+.footer-sub{font-size:.68rem;font-weight:800;color:rgba(255,255,255,.4);letter-spacing:.05em;margin:1rem 0 .45rem}
+.footer-sub:first-of-type{margin-top:0}
+.footer-social{display:flex;gap:.6rem}
+.footer-social a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:inline-flex;align-items:center;justify-content:center;font-size:.62rem;color:rgba(255,255,255,.85);font-weight:800}
+.footer-social a svg{width:16px;height:16px;fill:currentColor}
+.footer-social .prtimes-text{font-weight:900;font-size:.74rem}
+.footer-social .pr-p{color:var(--gb-sys)}
+.footer-social a:hover .pr-p{color:#fff}
+.footer-social a:hover{background:var(--gb-sys);color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;flex-wrap:wrap;gap:.9rem;border-top:1px solid rgba(255,255,255,.1)}
+.footer-copy{font-size:.76rem;color:rgba(255,255,255,.4)}
+.footer-legal{display:flex;gap:1.2rem;flex-wrap:wrap}
+.footer-legal a{font-size:.76rem;color:rgba(255,255,255,.5)}
+.footer-legal a:hover{color:#fff}
+
+@media(max-width:900px){.mnav,.util-links{display:none}.case-grid{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+
+<!-- ============ 主ヘッダー（header1 のみ・白・sticky） ============ -->
+<nav class="mainbar">
+  <div class="mainbar-c">
+    <a href="https://gbase.ai/" class="mlogo"><img src="assets/gbase-mark-navy.png" alt="GBase シリーズ">GBase<span class="ser">シリーズ</span></a>
+    <ul class="mnav">
+      <li class="has-mega">
+          <span class="sw">製品</span>
+          <div class="mega" style="min-width:640px">
+            <div class="mega-cols">
+              <div>
+                <div class="mega-col-label">製品</div>
+                <a class="mega-item" href="https://gbase.ai/"><img class="pico" src="assets/gbase-mark-cyan.png" alt=""><span><span class="tt">GBase Knowledge</span><span class="dd2">社内ナレッジを一元化</span></span></a>
+                <a class="mega-item" href="https://gbase.ai/support/"><img class="pico" src="assets/gbase-mark-purple.png" alt=""><span><span class="tt">GBase Support</span><span class="dd2">問い合わせ対応を自動化</span></span></a>
+                <a class="mega-item" href="https://gbase.ai/onprem/"><img class="pico" src="assets/gbase-mark-green.png" alt=""><span><span class="tt">GBase On-Prem</span><span class="dd2">閉域で動くオンプレAI</span></span></a>
+              </div>
+              <div>
+                <div class="mega-col-label">機能</div>
+                <a class="mega-item" href="https://gbase.ai/ai-slides"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/></svg></span><span><span class="tt">スライド生成</span><span class="dd2">テーマ入力で提案書を自動生成</span></span></a>
+                <a class="mega-item" href="https://gbase.ai/onprem/ai-minutes/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span><span><span class="tt">議事録</span><span class="dd2">録音から議事録を自動生成</span></span></a>
+                <a class="mega-item" href="https://gbase.ai/onprem/ai-ocr/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8V6a2 2 0 0 1 2-2h2M16 4h2a2 2 0 0 1 2 2v2M20 16v2a2 2 0 0 1-2 2h-2M8 20H6a2 2 0 0 1-2-2v-2"/><path d="M4 12h16"/></svg></span><span><span class="tt">書類チェック（OCR）<span class="newbadge">NEW</span></span><span class="dd2">帳票の読取と全件確認</span></span></a>
+                <a class="mega-item" href="https://gbase.ai/support/ai-phone/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.2 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 9.5a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg></span><span><span class="tt">AI電話受付・取次</span><span class="dd2">電話の一次対応と転送を自動化</span></span></a>
+                <a class="mega-item" href="https://gbase.ai/support/concierge/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 16a6 6 0 0 0-12 0M4 16h16M12 6V4M10 4h4M11 20h2"/></svg></span><span><span class="tt">AI受付コンシェルジュ</span><span class="dd2">多言語対応のAI受付</span></span></a>
+              </div>
+            </div>
+          </div>
+      </li>
+      <li class="has-mega">
+          <span class="sw">ソリューション</span>
+          <div class="mega" style="min-width:700px">
+            <div class="mega-cols">
+              <div>
+                <div class="mega-col-label">業種から探す</div>
+                <a class="mega-item" href="https://gbase.ai/onprem/solutions/manufacturing/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20M4 20V10l5 3V10l5 3V10l5 3v7"/></svg></span><span><span class="tt">製造業</span><span class="dd2">技術文書・ノウハウのAI活用</span></span></a>
+                <a class="mega-item" href="https://ailisonc147.github.io/onprem/government-solution.html"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5"/></svg></span><span><span class="tt">自治体・官公庁</span><span class="dd2">閉域で住民対応・文書業務を効率化</span></span></a>
+                <a class="mega-item" href="https://gbase.ai/solution-advertising"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7"/></svg></span><span><span class="tt">広告代理店</span><span class="dd2">提案・企画業務を高速化</span></span></a>
+                <a class="mega-item" href="https://gbase.ai/solution/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></span><span><span class="tt">コンサルティング業界</span><span class="dd2">提案書・社内ナレッジの活用</span></span></a>
+              </div>
+              <div>
+                <div class="mega-col-label">部門・用途から探す</div>
+                <a class="mega-item" href="https://gbase.ai/solution-sales"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l3-3 3 3 5-5"/></svg></span><span><span class="tt">営業部門</span><span class="dd2">商談準備・資料作成を効率化</span></span></a>
+                <a class="mega-item" href="https://gbase.ai/support/solution/"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14v-1a8 8 0 0 1 16 0v1M4 14a2 2 0 0 0 2 2h1v-5H6a2 2 0 0 0-2 2M20 14a2 2 0 0 0-2 2h-1v-5h1a2 2 0 0 1 2 2M18 16a4 4 0 0 1-4 4h-2"/></svg></span><span><span class="tt">カスタマーサポート</span><span class="dd2">問い合わせ対応を自動化</span></span></a>
+              </div>
+            </div>
+          </div>
+      </li>
+        <li><a href="https://ailisoncheng416.github.io/gbase-series/case-studies.html" class="active">導入事例</a></li>
+        <li><a href="https://gbase.ai/blog/">ブログ</a></li>
+    </ul>
+    <div class="mbtns">
+      <a href="https://ailisoncheng416.github.io/gbase-series/contact.html" class="btn btn-outline">お問い合わせ</a>
+      <a href="https://ailisoncheng416.github.io/gbase-series/contact.html" class="btn btn-sys">無料ではじめる</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ ページ見出し ============ -->
+<div class="page-head">
+  <div class="page-head-in">
+    <h1>導入事例</h1>
+    <p>GBase シリーズ（Knowledge / Support / On-Prem）を、さまざまな業界・現場でご活用いただいています。製品・業種・シーンで絞り込んでご覧ください。</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- ===== フィルタ（製品／業種／シーン・多軸・複数選択可） ===== -->
+  <div class="filter">
+    <div class="filter-row">
+      <span class="filter-label">製品</span>
+      <div class="chips">
+        <button class="chip" data-axis="product" data-val="knowledge"><span class="cdot" style="background:#00ccff"></span>GBase Knowledge</button>
+        <button class="chip" data-axis="product" data-val="support"><span class="cdot" style="background:#7c3aed"></span>GBase Support</button>
+        <button class="chip" data-axis="product" data-val="onprem"><span class="cdot" style="background:#9BA832"></span>GBase On-Prem</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">業種</span>
+      <div class="chips">
+        <button class="chip" data-axis="industry" data-val="manufacturing">製造業</button>
+        <button class="chip" data-axis="industry" data-val="telecom">通信</button>
+        <button class="chip" data-axis="industry" data-val="retail">小売・サービス</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">シーン</span>
+      <div class="chips">
+        <button class="chip" data-axis="scene" data-val="knowledge-use">ナレッジ活用</button>
+        <button class="chip" data-axis="scene" data-val="inquiry">問い合わせ対応</button>
+        <button class="chip" data-axis="scene" data-val="reception">受付・館内案内</button>
+      </div>
+    </div>
+    <div class="filter-foot">
+      <span class="filter-count"><b id="count">4</b> 件の導入事例</span>
+      <button class="clear-btn" id="clear">すべてクリア</button>
+    </div>
+  </div>
+
+  <!-- ===== 事例グリッド ===== -->
+  <div class="case-grid" id="grid">
+
+    <a class="case-card" href="https://gbase.ai/onprem/showcase/ebara/" data-product="onprem" data-industry="manufacturing" data-scene="knowledge-use">
+      <div class="case-thumb">
+        <img src="assets/case-ebara.jpg" alt="株式会社荏原製作所 導入事例">
+        <span class="metric">検索時間 −93%</span>
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag tag-prod"><span class="pd" style="background:#9BA832"></span>On-Prem</span>
+          <span class="tag">製造業</span><span class="tag">ナレッジ活用</span>
+        </div>
+        <div class="case-company">株式会社荏原製作所</div>
+        <div class="case-title">技術情報の検索を30分→2分に。110年のノウハウを閉域AIで。</div>
+        <div class="case-excerpt">機密の技術文書を外部に出さず、専門家レベルの回答を実現。技術情報検索を93%短縮し、情報漏洩は0件（完全閉域）。導入満足度10点中9点。</div>
+        <span class="case-more">詳細を見る</span>
+      </div>
+    </a>
+
+    <a class="case-card" href="https://gbase.ai/support/showcase/his-mobile/" data-product="support" data-industry="telecom" data-scene="inquiry">
+      <div class="case-thumb">
+        <img src="assets/case-his-mobile.png" alt="HISモバイル株式会社 導入事例">
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag tag-prod"><span class="pd" style="background:#7c3aed"></span>Support</span>
+          <span class="tag">通信</span><span class="tag">問い合わせ対応</span>
+        </div>
+        <div class="case-company">HISモバイル株式会社</div>
+        <div class="case-title">格安SIMの問い合わせ対応を、AIチャットボットで自動化。</div>
+        <div class="case-excerpt">FAQからAIを学習させ、料金・手続きに関する顧客の疑問に24時間365日で即応。オペレーターの負荷を抑えつつ、応答体験を向上。</div>
+        <span class="case-more">詳細を見る</span>
+      </div>
+    </a>
+
+    <a class="case-card" href="https://gbase.ai/support/showcase/newoman-takanawa/" data-product="support" data-industry="retail" data-scene="reception">
+      <div class="case-thumb">
+        <img src="assets/case-newoman.jpg" alt="ニュウマン高輪 導入事例">
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag tag-prod"><span class="pd" style="background:#7c3aed"></span>Support</span>
+          <span class="tag">小売・サービス</span><span class="tag">受付・館内案内</span>
+        </div>
+        <div class="case-company">ニュウマン高輪</div>
+        <div class="case-title">大型商業施設の館内案内を、多言語AI受付で。</div>
+        <div class="case-excerpt">来館者の「どこに何があるか」をAIが多言語で即案内。館内マップ・店舗情報と連携し、スタッフの案内負荷を軽減しながら回遊体験を向上。</div>
+        <span class="case-more">詳細を見る</span>
+      </div>
+    </a>
+
+    <a class="case-card" href="https://gbase.ai/support/showcase/sapporo-factory/" data-product="support" data-industry="retail" data-scene="reception">
+      <div class="case-thumb">
+        <img src="assets/case-sapporo.jpg" alt="サッポロファクトリー 導入事例">
+      </div>
+      <div class="case-body">
+        <div class="case-tags">
+          <span class="tag tag-prod"><span class="pd" style="background:#7c3aed"></span>Support</span>
+          <span class="tag">小売・サービス</span><span class="tag">受付・館内案内</span>
+        </div>
+        <div class="case-company">サッポロファクトリー</div>
+        <div class="case-title">大型複合施設の案内業務を、AI受付で効率化。</div>
+        <div class="case-excerpt">施設案内・イベント情報の問い合わせをAIが一次対応。多言語対応で来館者体験を高めつつ、有人カウンターの混雑を緩和。</div>
+        <span class="case-more">詳細を見る</span>
+      </div>
+    </a>
+
+    <div class="empty" id="empty" style="display:none">条件に一致する事例がありません。フィルタを変更してください。</div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-col">
+        <h4>製品</h4>
+        <ul>
+          <li><a href="https://gbase.ai/"><img class="fmark" src="assets/gbase-mark-cyan.png" alt="">GBase Knowledge</a></li>
+          <li><a href="https://gbase.ai/support/"><img class="fmark" src="assets/gbase-mark-purple.png" alt="">GBase Support</a></li>
+          <li><a href="https://gbase.ai/onprem/"><img class="fmark" src="assets/gbase-mark-green.png" alt="">GBase On-Prem</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>機能</h4>
+        <ul>
+          <li><a href="https://gbase.ai/ai-slides">スライド生成</a></li>
+          <li><a href="https://gbase.ai/onprem/ai-minutes/">議事録</a></li>
+          <li><a href="https://gbase.ai/onprem/ai-ocr/">書類チェック（OCR）</a></li>
+          <li><a href="https://gbase.ai/support/ai-phone/">AI電話受付・取次</a></li>
+          <li><a href="https://gbase.ai/support/concierge/">AI受付コンシェルジュ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>ソリューション</h4>
+        <div class="footer-sub">業種別</div>
+        <ul>
+          <li><a href="https://gbase.ai/onprem/solutions/manufacturing/">製造業</a></li>
+          <li><a href="https://ailisonc147.github.io/onprem/government-solution.html">自治体・官公庁</a></li>
+          <li><a href="https://gbase.ai/solution-advertising">広告代理店</a></li>
+          <li><a href="https://gbase.ai/solution/">コンサルティング業界</a></li>
+        </ul>
+        <div class="footer-sub">部門・用途別</div>
+        <ul>
+          <li><a href="https://gbase.ai/solution-sales">営業部門</a></li>
+          <li><a href="https://gbase.ai/support/solution/">カスタマーサポート</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>会社・リソース</h4>
+        <ul>
+          <li><a href="https://ailisoncheng416.github.io/gbase-series/case-studies.html">導入事例</a></li>
+          <li><a href="https://gbase.ai/blog/">ブログ</a></li>
+          <li><a href="https://www.sparticle.com/" target="_blank" rel="noopener">会社情報</a></li>
+          <li><a href="https://www.sparticle.com/ja/company#career-target" target="_blank" rel="noopener">採用情報</a></li>
+          <li><a href="https://ailisoncheng416.github.io/gbase-series/contact.html">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-mid">
+      <a href="https://gbase.ai/" class="flogo"><img src="assets/gbase-mark-white.png" alt="GBase">GBase</a>
+      <div class="footer-social">
+        <a href="https://prtimes.jp/main/html/searchrlp/company_id/87269" target="_blank" rel="noopener" aria-label="PR TIMES" class="prtimes-text"><span class="pr-p">P</span><span class="pr-r">R</span></a>
+        <a href="https://x.com/GBaseHub" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.linkedin.com/company/sparticle-inc/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+        <a href="https://note.com/sparticle_gbase" target="_blank" rel="noopener" aria-label="note"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M0 .279c4.623 0 10.953-.235 15.498-.117 6.099.156 8.39 2.813 8.468 9.374.077 3.71 0 14.335 0 14.335h-6.598c0-9.296.04-10.83 0-13.759-.078-2.578-.814-3.807-2.795-4.041-2.097-.235-7.975-.04-7.975-.04v17.84H0Z"/></svg></a>
+        <a href="https://www.youtube.com/@sparticle_gbase" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Sparticle Inc. All rights reserved.</span>
+      <div class="footer-legal">
+        <a href="https://gbase.ai/terms-of-use">利用規約</a>
+        <a href="https://gbase.ai/privacy-policy">プライバシーポリシー</a>
+        <a href="https://gbase.ai/support/legal/specific-based/">特定商取引法</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var chips = Array.prototype.slice.call(document.querySelectorAll('.chip'));
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.case-card'));
+  var countEl = document.getElementById('count');
+  var emptyEl = document.getElementById('empty');
+  function selected(axis){
+    return chips.filter(function(c){return c.dataset.axis===axis && c.classList.contains('active');})
+                .map(function(c){return c.dataset.val;});
+  }
+  function apply(){
+    var p=selected('product'), i=selected('industry'), s=selected('scene');
+    var n=0;
+    cards.forEach(function(card){
+      var ok = (p.length===0||p.indexOf(card.dataset.product)>-1)
+            && (i.length===0||i.indexOf(card.dataset.industry)>-1)
+            && (s.length===0||s.indexOf(card.dataset.scene)>-1);
+      card.style.display = ok ? '' : 'none';
+      if(ok) n++;
+    });
+    countEl.textContent = n;
+    emptyEl.style.display = n===0 ? '' : 'none';
+  }
+  chips.forEach(function(c){ c.addEventListener('click',function(){ c.classList.toggle('active'); apply(); }); });
+  document.getElementById('clear').addEventListener('click',function(){
+    chips.forEach(function(c){c.classList.remove('active');}); apply();
+  });
+})();
+</script>
+</body>
+</html>
