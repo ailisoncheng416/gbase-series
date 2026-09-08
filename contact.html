@@ -79,22 +79,14 @@ img{max-width:100%;display:block}
 .fsec{margin-bottom:1.9rem}
 .fsec>.lbl{font-size:.92rem;font-weight:700;color:var(--gb-navy);margin-bottom:.85rem;display:block}
 .fsec>.lbl small{font-weight:600;color:var(--gb-gray);font-size:.78rem;margin-left:.4rem}
-.req{color:#e11d48;font-size:.82em;margin-left:.25rem}
-.opt-grid{display:grid;grid-template-columns:1fr 1fr;gap:.55rem}
-.opt{position:relative;display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border:1.5px solid var(--gb-line);border-radius:10px;cursor:pointer;transition:.18s}
-.opt:hover{border-color:#cdd5e0}
-.opt input{position:absolute;opacity:0;width:0;height:0;pointer-events:none}
-.opt .chk{order:-1;width:18px;height:18px;border-radius:5px;border:1.6px solid #cbd5e1;flex:0 0 auto;display:flex;align-items:center;justify-content:center;transition:.15s}
-.opt.radio .chk{border-radius:50%}
-.opt .chk svg{width:11px;height:11px;opacity:0;color:#fff}
-.opt .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto}
-.opt .ic{width:28px;height:28px;border-radius:7px;background:var(--gb-sys-soft);color:var(--gb-sys);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
-.opt .ic svg{width:15px;height:15px}
-.opt .ol{font-weight:700;font-size:.86rem;color:var(--gb-navy);line-height:1.3}
-.opt .os{font-size:.72rem;color:var(--gb-gray);display:block;margin-top:.08rem;font-weight:400}
-.opt.on{border-color:var(--gb-sys);background:var(--gb-sys-soft)}
-.opt.on .chk{background:var(--gb-sys);border-color:var(--gb-sys)}
-.opt.on .chk svg{opacity:1}
+.req{display:inline-block;font-size:.62rem;font-weight:800;color:#e11d48;background:#fee2e2;border-radius:4px;padding:.1rem .34rem;margin-left:.4rem;vertical-align:middle;letter-spacing:.03em;line-height:1.2}
+.checklist{display:flex;flex-direction:column;border:1px solid var(--gb-line);border-radius:11px;padding:.15rem 1rem}
+.checklist label{display:flex;align-items:flex-start;gap:.65rem;padding:.62rem 0;cursor:pointer;border-bottom:1px solid var(--gb-line)}
+.checklist label:last-child{border-bottom:none}
+.checklist input{width:17px;height:17px;flex:0 0 auto;accent-color:var(--gb-sys);cursor:pointer;margin-top:.12rem}
+.checklist .txt{font-size:.9rem;font-weight:700;color:var(--gb-navy);line-height:1.5}
+.checklist .mut{font-weight:400;font-size:.78rem;color:var(--gb-gray);margin-left:.45rem}
+.checklist label:hover .txt{color:var(--gb-sys)}
 
 /* フィールド */
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
@@ -231,80 +223,56 @@ img{max-width:100%;display:block}
       <!-- 右：フォーム -->
       <div class="fcard">
         <form id="cform" novalidate>
-          <!-- ① 製品（複数選択可） -->
-          <div class="fsec">
-            <span class="lbl">ご興味のある製品<span class="req">*</span><small>複数選択できます</small></span>
-            <div class="opt-grid">
-              <label class="opt"><input type="checkbox" name="product" value="knowledge">
-                <span class="dot" style="background:var(--gb-cyan)"></span>
-                <span><span class="ol">GBase Knowledge</span><span class="os">社内ナレッジ AI</span></span>
-                <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-              </label>
-              <label class="opt"><input type="checkbox" name="product" value="support">
-                <span class="dot" style="background:var(--gb-purple)"></span>
-                <span><span class="ol">GBase Support</span><span class="os">多言語サポート AI</span></span>
-                <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-              </label>
-              <label class="opt"><input type="checkbox" name="product" value="onprem">
-                <span class="dot" style="background:var(--gb-olive)"></span>
-                <span><span class="ol">GBase OnPrem</span><span class="os">閉域オンプレ AI</span></span>
-                <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-              </label>
-              <label class="opt"><input type="checkbox" name="product" value="undecided">
-                <span class="dot" style="background:#94a3b8"></span>
-                <span><span class="ol">まだ決めていない</span><span class="os">まずは相談したい</span></span>
-                <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-              </label>
-            </div>
-          </div>
-
-          <!-- ② 種別（単一選択） -->
-          <div class="fsec">
-            <span class="lbl">お問い合わせ種別<span class="req">*</span></span>
-            <div class="opt-grid" style="grid-template-columns:1fr">
-              <label class="opt radio"><input type="radio" name="type" value="document">
-                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span>
-                <span><span class="ol">資料請求</span><span class="os">サービス紹介・料金がわかる資料をお送りします</span></span>
-                <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-              </label>
-              <label class="opt radio"><input type="radio" name="type" value="demo">
-                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M10 8.5l4 2.5-4 2.5z"/></svg></span>
-                <span><span class="ol">デモのご希望</span><span class="os">実際の画面を担当者がオンラインでご案内します</span></span>
-                <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-              </label>
-              <label class="opt radio"><input type="radio" name="type" value="inquiry">
-                <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8A8.5 8.5 0 0 1 12.5 3 8.5 8.5 0 0 1 21 11.5z"/></svg></span>
-                <span><span class="ol">ご相談・お問い合わせ</span><span class="os">課題・費用・導入方法など、まずはご相談ください</span></span>
-                <span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-              </label>
-            </div>
-          </div>
-
-          <!-- ③ お客様情報 -->
+          <!-- ① お客様情報 -->
           <div class="fsec">
             <span class="lbl">お客様情報</span>
             <div class="frow">
-              <div class="field"><label>会社名<span class="req">*</span></label><input type="text" name="company" required placeholder="株式会社〇〇"></div>
-              <div class="field"><label>お名前<span class="req">*</span></label><input type="text" name="name" required placeholder="山田 太郎"></div>
+              <div class="field"><label>会社名<span class="req">必須</span></label><input type="text" name="company" required placeholder="株式会社〇〇"></div>
+              <div class="field"><label>お名前<span class="req">必須</span></label><input type="text" name="name" required placeholder="山田 太郎"></div>
             </div>
             <div class="frow">
-              <div class="field"><label>メールアドレス<span class="req">*</span></label><input type="email" name="email" required placeholder="you@example.com"></div>
-              <div class="field"><label>電話番号<span class="opt-tag">任意</span></label><input type="tel" name="tel" placeholder="03-0000-0000"></div>
+              <div class="field"><label>メールアドレス<span class="req">必須</span></label><input type="email" name="email" required placeholder="you@example.com"></div>
+              <div class="field"><label>電話番号</label><input type="tel" name="tel" placeholder="03-0000-0000"></div>
             </div>
             <div class="frow">
-              <div class="field"><label>部署・役職<span class="opt-tag">任意</span></label><input type="text" name="dept" placeholder="情報システム部 マネージャー"></div>
-              <div class="field"><label>従業員規模<span class="opt-tag">任意</span></label>
+              <div class="field"><label>部署・役職</label><input type="text" name="dept" placeholder="情報システム部 マネージャー"></div>
+              <div class="field"><label>従業員規模</label>
                 <select name="size">
                   <option value="">選択してください</option>
                   <option>〜50名</option><option>51〜300名</option><option>301〜1,000名</option><option>1,001名以上</option>
                 </select>
               </div>
             </div>
-            <div class="field"><label>お問い合わせ内容<span class="opt-tag">任意</span></label><textarea name="message" placeholder="ご相談内容や現在の課題があればご記入ください。"></textarea></div>
+          </div>
+
+          <!-- ② ご興味のある製品（複数選択可） -->
+          <div class="fsec">
+            <span class="lbl">ご興味のある製品<span class="req">必須</span><small>複数選択できます</small></span>
+            <div class="checklist">
+              <label><input type="checkbox" name="product" value="knowledge"><span class="txt">GBase Knowledge<span class="mut">社内ナレッジ AI</span></span></label>
+              <label><input type="checkbox" name="product" value="support"><span class="txt">GBase Support<span class="mut">多言語サポート AI</span></span></label>
+              <label><input type="checkbox" name="product" value="onprem"><span class="txt">GBase OnPrem<span class="mut">閉域オンプレ AI</span></span></label>
+              <label><input type="checkbox" name="product" value="undecided"><span class="txt">相談してから考えたい</span></label>
+            </div>
+          </div>
+
+          <!-- ③ お問い合わせ種別 -->
+          <div class="fsec">
+            <span class="lbl">お問い合わせ種別<span class="req">必須</span></span>
+            <div class="checklist">
+              <label><input type="radio" name="type" value="document"><span class="txt">資料請求<span class="mut">サービス紹介・料金がわかる資料をお送りします</span></span></label>
+              <label><input type="radio" name="type" value="demo"><span class="txt">デモのご希望<span class="mut">実際の画面をオンラインでご案内します</span></span></label>
+              <label><input type="radio" name="type" value="inquiry"><span class="txt">ご相談・お問い合わせ<span class="mut">課題・費用・導入方法など、まずはご相談ください</span></span></label>
+            </div>
+          </div>
+
+          <!-- ④ お問い合わせ内容 -->
+          <div class="fsec">
+            <div class="field"><label>お問い合わせ内容</label><textarea name="message" placeholder="ご相談内容や現在の課題があればご記入ください。"></textarea></div>
           </div>
 
           <label class="consent"><input type="checkbox" name="consent" required>
-            <span><a href="https://gbase.ai/privacy-policy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意のうえ送信します。<span class="req">*</span></span>
+            <span><a href="https://gbase.ai/privacy-policy" target="_blank" rel="noopener">プライバシーポリシー</a>に同意のうえ送信します。<span class="req">必須</span></span>
           </label>
 
           <button type="submit" class="btn btn-sys fsubmit">送信する</button>
@@ -389,18 +357,6 @@ img{max-width:100%;display:block}
 
 <script>
 (function(){
-  // 選択カードの ON/OFF 同期
-  document.querySelectorAll('.opt input').forEach(function(inp){
-    inp.addEventListener('change',function(){
-      if(inp.type==='radio'){
-        document.querySelectorAll('input[name="'+inp.name+'"]').forEach(function(r){
-          r.closest('.opt').classList.toggle('on', r.checked);
-        });
-      } else {
-        inp.closest('.opt').classList.toggle('on', inp.checked);
-      }
-    });
-  });
   // 送信（デモ：実運用ではフォームハンドラ / API に接続してください）
   var form=document.getElementById('cform');
   form.addEventListener('submit',function(e){
